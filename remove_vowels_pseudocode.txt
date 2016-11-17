@@ -1,0 +1,18 @@
+REMOVE_VOWELS(S,V,x,new)
+               If  x  >  0
+                     x <- (x-1)
+                     if V[x] in S
+                             a <- V[x]
+                              new <- new(remove(a))
+                              remove_vowels(S,V,x,new)
+                              return x
+                     else
+                            remove_vowels(S,V,x,new)
+                else
+                      return x
+S <- (“input”)
+V <- (“a”,”e”,”i”,”o”,”u”)
+x <- Length(V)
+new <- S
+output(S)
+remove_vowels(S,V,x,new)

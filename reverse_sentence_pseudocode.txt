@@ -1,0 +1,17 @@
+
+
+REVERSE_SENTENCE(S)
+
+             X <- Length(S)
+             If   X   <=   0
+                       return S
+             else
+                       X <- X-1
+                       S <- S
+                       reverse_sentence(S[1:]) to S[0:]
+                       return S
+
+S <- (“This”, “is”, “awesome”)
+
+reverse_sentence(S)
+

@@ -1,0 +1,17 @@
+PRIME(n,i)
+
+      If   n > 1  and   i  >  1
+              ans <- n  %  i
+              if  ans   !=  0
+                     i  <- i – 1
+                     prime(n, i)
+                     return i
+              elif   ans  =  0
+                     not a prime number
+      else
+              prime number
+
+n <- 3
+i <- n – 1
+prime(n,i)
+              

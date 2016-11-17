@@ -1,0 +1,16 @@
+
+Pseudocode:
+
+HIGHEST_PERFECT_SQUARE (n)
+       ans <- 0
+       if n >= 0
+             while ans*ans < n
+                         ans <- ans + 1
+             if ans*ans = n
+                         return(n)
+             else
+                        n <- (n-1)
+                        repeat(n)
+       else:
+          return n
+

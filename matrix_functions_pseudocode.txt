@@ -1,0 +1,15 @@
+
+MATRIX_ADDITION(B,C)
+       for i in range(len(B))                                          n
+              for j in range(len(B[i]))                               n*n
+                      A[i][j] <- B[i][j] + C[i][j]                        n*n
+
+MATRIX_SUBTRACTION(B,C)
+        for i in range(len(B))                                          n
+              for j in range(len(B[i]))                                n*n
+                    A[i][j] <- B[i][j] – C[i][j]                           n*n
+
+MATRIX_MULTIPLICATION(B,C)
+         for i in range(len(B))                                          n
+                for j in range(len(B[i]))                               n*n
+                      A[i][j] <- B[i][j] * C[i][j]                          n*n
