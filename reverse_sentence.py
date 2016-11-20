@@ -27,7 +27,7 @@ def reverse_sentence(s):
 sentence = ("This is awesome")            # Original input
 
 if type(sentence) != str:
-    print("Input must be a strin")
+    print("Input must be a string")
     sys.exit()
 
 s = sentence.split()        # Split so that can index each word in sentence
