@@ -24,8 +24,11 @@ def prime(enter, x):
         print(str(enter) + " is a prime number")
 try:
     enter = 3
-    x = enter - 1
-    prime(enter,x)
+    if enter > 1:
+        x = enter - 1
+        prime(enter,x)
+    else:
+        print("Input must be greater than 1")
 
 
 except NameError:
