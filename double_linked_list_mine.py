@@ -48,7 +48,7 @@ class Double_Linked_List:
         else:                                  
             self.head = node.next
 
-        if node.next != None:                  # Nex node now equals the previous
+        if node.next != None:                  # Next node now equals the previous
             node.next.prev = node.prev
 
         else:

@@ -1,72 +1,78 @@
+import sys
+
 class Tree:
 
-    def __init__(self, value):             # clears tree to start
+    """ Assigns values and left and right variables for tree structure """
+
+    def __init__(self, value):             
 
         self.value = value
         self.right = None
         self.left = None
 
-def insert_value(tree, item):   # Binary search tree
+def insert_value(tree, item):             # Binary search tree
     
     """ Insert values into Binary Tree structure """
 
     if tree == None:
-        tree = Tree(item)        # makes values NONE
+        tree = Tree(item)                 # Makes values NONE
 
     else:
 
-        if (item < tree.value):   # left side must be smaller
+        if (item < tree.value):           # Left side must be smaller
             
             if (tree.left == None):
-                tree.left = Tree(item) # becomes the new root
+                tree.left = Tree(item)    # Becomes the new root
 
             else:
-                insert_value(tree.left,item)   # recalls 
+                insert_value(tree.left,item)   
 
-        else:                          # right side must be larger
+        else:                             # Right side must be larger
 
             if(tree.right == None):
                 tree.right = Tree(item)
 
             else:
-                insert_value(tree.right, item)   # recalls
+                insert_value(tree.right, item)   
 
-    return tree       # RECURSIVE
+    return tree      
 
-def in_order_iterative(tree_root):
+def in_order_itterative(tree_root):
 
-    """ Traverse tree in order (Left,Node,Right) """
+    """ Orders Nodes in Left, Node, Right (in order) struture """
 
-    current = tree_root       # Root of tree (top value)
+    current = tree_root                   # Root of tree(top value in tree)
 
-    stack = []           # Create stack
-    stop = 0
+    stack = []                            # LIFO (last in first out)
 
     while True:
 
-        if current != None:           # Leaf = no children
+        while current != None:            # A leaf has no children
 
-            stack.append(current)     # Add value to stack = first in order
-            current = current.left    # Move to next left value
+            stack.append(current)         # Add values into stack
+            current = current.left        # Continue moving left
 
-        else:
+        if current == None:               # No more children
 
-            length = len(stack)       # If current has a value then it will have been added to stack 
+            length = len(stack)
+
+            # Stack will only be empty once all nodes have been added to order
 
             if length > 0:
-
-                current = stack.pop()   # List method - will remove top element from stack
-
+                
+                current = stack.pop()     # Takes last in stack value
+                
+                                          # Value gets removed from stack at the same time
+                
                 print(current.value)
-                current = current.right  # Move to previous then check if points right
+                current = current.right   # Now we have gone left, need to go right
 
             else:
+                sys.exit()                # Stop infinite loop
 
-                stop = 1              # Stops infinite loop, while = False
-
-
-# DOESN'T MATTER WHAT ORDER WE ENTER IT WILL BE SORTED INTO BINARY TREE
-
+                
+                                          # Example Graph for Visual representation 
+                
 t = insert_value(None,10)                 #                 10
 tree_root = insert_value(None, None)      #               /    \ 
 tree_root.left = insert_value(t, 8)       #              8      14
@@ -78,7 +84,7 @@ insert_value(t, 17)
 insert_value(t, 11)
 insert_value(t, 13)
 
-in_order_iterative(tree_root)  
+in_order_itterative(tree_root)  
 
 
 
