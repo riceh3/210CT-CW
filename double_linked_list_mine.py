@@ -1,5 +1,7 @@
 class Node:
 
+    """ Establishes Node with connected Nodes """
+
     def __init__(self, value):
 
         self.value = value
@@ -7,6 +9,8 @@ class Node:
         self.prev = None
 
 class Double_Linked_List:
+    
+    """ Insert given nodes and remove given nodes to and from a double linked list """
 
     def __init__(self):
 
