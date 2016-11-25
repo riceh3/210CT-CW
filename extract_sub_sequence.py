@@ -1,4 +1,5 @@
 import sys
+
 class Extract_Sub_Sequence:
 
     """ Extract the sub sequence of maximum length in ascending order """
@@ -10,7 +11,9 @@ class Extract_Sub_Sequence:
 
     def search_sequence(self):
 
-        point = (self.sequence[0])  
+        """ Search the sequence values and determine length """
+
+        current = (self.sequence[0])  
 
         start = sequence[0]    # Start search at first element
         
@@ -21,8 +24,8 @@ class Extract_Sub_Sequence:
 
             if self.sequence[i] > self.sequence[i-1]:   # Ascending order
                 
-                point = self.sequence[i]
-                A.append(point)             # Store sub sequence value
+                current = self.sequence[i]
+                A.append(current)              # Store sub sequence value
                 print(A)
                 
             else:
@@ -32,16 +35,24 @@ class Extract_Sub_Sequence:
 
                 A = [sequence[i]]
                     
-        if len(A) > len(B):
+        if len(A) > len(B):      # Detmines which sub sequence is longer
             print("")
             print(A)
         else:
             print("")
             print(B)
-                    
-        
-              
-sequence = [1,2,3,4,1,5,1,6,7]
 
-Extract_Sub_Sequence(sequence)
+try:
+    
+    sequence = [1,2,3,4,1,5,1,6,7]
+    Extract_Sub_Sequence(sequence)
+    
+except NameError:                            # Catch potential input errors
 
+    print("Sequence must be numbers")
+
+except TypeError:
+
+    print("Sequence must be integers not string")
+
+    
