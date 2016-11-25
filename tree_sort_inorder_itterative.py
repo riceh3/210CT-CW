@@ -37,9 +37,9 @@ def insert_value(tree, item):             # Binary search tree
 
     return tree      
 
-def in_order_itterative(tree_root):
+def in_order_iterative(tree_root):
 
-    """ Orders Nodes in Left, Node, Right (in order) struture """
+    """ Orders Nodes in Left, Node, Right (in order) structure """
 
     current = tree_root                   # Root of tree(top value in tree)
 
@@ -84,7 +84,7 @@ insert_value(t, 17)
 insert_value(t, 11)
 insert_value(t, 13)
 
-in_order_itterative(tree_root)  
+in_order_iterative(tree_root)  
 
 
 
