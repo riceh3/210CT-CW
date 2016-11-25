@@ -30,7 +30,7 @@ try:
 
 except NameError:
     print("Invalid Input")
-    sys.exit()
+    sys.exit()N
     
 except TypeError:
     print("Invalid Input")
