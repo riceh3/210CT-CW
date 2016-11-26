@@ -24,6 +24,7 @@ class Graph:
 
         print(self.vertices)
 
+#  SET DEFAULT AND FIGURE OUT PSEUDOCODE
 g = Graph()  
 
 g.add_vertex('1')
@@ -38,6 +39,7 @@ g.add_edge('3',['4','5'])
 g.add_edge('4',['2','3','5','6'])
 g.add_edge('5',['3','4','6'])
 
+print("")
 g.show_graph()
         
 
