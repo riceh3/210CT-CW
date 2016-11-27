@@ -19,7 +19,7 @@ def reverse_sentence(s):
         reverse_sentence(s[1:]) + s[0:]   # Recalls the function with new '0'
         
         position = s[0]                   # Saves position 0 value
-                                          # S[0] changes each itteration
+                                          # S[0] changes each iteration
         print(position)   
         return  s                         # Continues through the input
 
