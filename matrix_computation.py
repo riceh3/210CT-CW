@@ -1,6 +1,8 @@
 import sys
 
-answer = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]] # Empty matrix to store answer
+# Empty matrix to store answer
+
+answer = [[0,0,0,0], [0,0,0,0], [0,0,0,0], [0,0,0,0]] 
 
 # Matricies to store resuts of calculations
 
@@ -68,14 +70,14 @@ def matrix_multiplication_second(calc_first_half, B, C):
     print(calc_first_half)
 
 
-# Matricies for calculations
-
-try:
+try:        # Catch Input Errors
+    
+            # Matricies for calculations
 
     B = [[1,2,3,4], [5,6,7,8], [9,10,1,2]],[3,4,5,6]]
     C = [[5,8,2,4], [6,1,8,2], [2,3,4,9], [10,7,9,5]]
 
-    if len(B) == len(C):
+    if len(B) == len(C):       # Length of matrices must be the same
 
         print("A = B*C - 2*(B+C) ")
 
