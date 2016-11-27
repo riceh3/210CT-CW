@@ -4,14 +4,14 @@ def prime(enter, x):
 
     """ Calculates if the input is a prime number or not """
 
-    if enter > 1 and x > 1:  # prime number must be greater than 1. BASE CASE
+    if enter > 1 and x > 1:   # Prime number must be greater than 1
 
-        result = enter % x   # enter / 1 but disregards the remainder
+        result = enter % x    # Enter / 1 but disregards the remainder
 
         if result != 0:  
 
-            x = x-1          # checks n / every number below n until reach 0 
-            prime(enter,x)   # recalls the function 
+            x = x-1           # Checks n / every number below n until reach 0 
+            prime(enter,x)   
 
             return x
 
@@ -22,19 +22,25 @@ def prime(enter, x):
     else:                
 
         print(str(enter) + " is a prime number")
-try:
+        
+try:                          # Catch for input errors
+    
     enter = 3
+    
     if enter > 1:
         x = enter - 1
         prime(enter,x)
+        
     else:
         print("Input must be greater than 1")
 
 
 except NameError:
+    
     print("Input must be an integer")
     sys.exit()
 
-except TypeError:        
+except TypeError:
+    
     print("Input must be an integer")
     sys.exit()
