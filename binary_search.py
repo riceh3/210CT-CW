@@ -1,37 +1,42 @@
+
 def binary_search(entry):              # Divide and Conquer
 
     """ Search through input for values within the given high & low parameters """
 
     length = len(entry)
-    middle = length/2
+    middle = length/2                  # Find the middle value in the list
     middle = int(middle)
 
     if entry[middle] == low or entry[middle] == high:
+        
         print("TRUE")
 
-    elif middle < 1:        # Value not in range
+    elif middle < 1:                   # Value not in range
+        
         print("FALSE")
 
     else:
 
         if entry[middle] > low and entry[middle] < high:
+            
             print("TRUE")
 
         elif low < entry[middle]:
             
-            entry = entry[:middle]    # Disregard first half of list
+            entry = entry[:middle]     # Disregard first half of list
             binary_search(entry)
             return entry
 
         elif high > entry[middle]:
             
-            entry = entry[middle:]    # Disregard second half of list
+            entry = entry[middle:]     # Disregard second half of list
             binary_search(entry)
             return entry
         
         else:
             print("FALSE")
-try:
+            
+try:                                   # Check for input errors
     
     entry = [2,3,5,7,9,13]
     low = 10
