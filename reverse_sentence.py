@@ -2,7 +2,7 @@ import sys
 
 def reverse_sentence(s):
 
-    """ Takes s as input then reverses the string """
+    """ Takes 's' as input then reverses the string """
 
     sLength = len(s)
 
@@ -26,7 +26,8 @@ def reverse_sentence(s):
 
 sentence = ("This is awesome")            # Original input
 
-if type(sentence) != str:
+if type(sentence) != str:                 # Catch for input errors
+    
     print("Input must be a string")
     sys.exit()
 
