@@ -47,7 +47,7 @@ try:                                   # Check for input errors
         binary_search(entry)
         
     else:
-        print("Low parameter must be less than High paramater")
+        print("Low parameter must be less than High parameter")
         
 except NameError:
     
