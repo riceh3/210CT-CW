@@ -50,7 +50,7 @@ class Graph:
                 
                 while go == True:
                     
-                    for a,v in enumerate(search):                     # Access each list element seperatley
+                    for a,v in enumerate(search):                     # Access each list element separately
 
                         try:
                             
