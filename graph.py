@@ -7,7 +7,7 @@
 
 class Graph:
 
-    """ Insert given vertex and value into graph """
+    """ Insert given vertex and edge into graph """
 
     def __init__(self):
 
