@@ -1,0 +1,9 @@
+GRAPH
+      vertices -> {}
+     ADD_VERTEX(v)
+               vertices[v] -> []
+     ADD_EDGE(e)
+                vertices(v, []) (e)
+     return vertices 
+
+
