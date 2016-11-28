@@ -87,7 +87,13 @@ class Graph:
         except IndexError:
             
             print("Breadth first search : ")
+            
             print(self.visited)
+
+            f = open('BFS_file', 'w')
+            intro = ('Breadth first search ')
+            f.write(intro)
+            f.write(str(self.visited))
             
 
    

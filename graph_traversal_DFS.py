@@ -94,6 +94,11 @@ class Graph:
         except:
             print("Depth First Search : ")
             print(self.visited)
+
+            f = open('DFS_file', 'w')
+            intro = ('Depth first search ')
+            f.write(intro)
+            f.write(str(self.visited))
         
 
 g = Graph()
