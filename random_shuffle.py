@@ -17,7 +17,7 @@ def random_shuffle(A,shuffled,length):
         
         else:
             
-            shuffled.append(a)
+            shuffled.append(a)      # Add randomly chosen value 
             length = length-1       # Moves towards base case
             
             random_shuffle(A,shuffled,length)
