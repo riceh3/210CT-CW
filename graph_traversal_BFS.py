@@ -1,43 +1,41 @@
-# new graph from slides:
-
-# { 'A' : ['B','S'],                         # Adjacency List
-#   'B' : ['A'],
-#   'C' : ['D','E','F','S'],
-#   'D' : ['C'],
-#   'E' : ['C','H'],
-#   'F' : ['C','G'],
-#   'G' : ['S','F','H'],
-#   'H' : ['E','G'] }
-
 
 import sys
 
 class Graph:
 
+    """ Insert given vertex and value into graph """
+
     def __init__(self):
 
-        vertices = {}
-        edges = [] ##
+        vertices = {}                                                # Used a Dictionary to store vertex as key
+                                                                     # - and lists as values
         self.vertices = vertices
-        self.edges = edges
-        visited = []
+        visited = []                                                 # Empty list for BFS
         self.visited = visited
 
     def add_vertex(self, new_vertex):
+
+        """ Add vertex as key """
 
         self.vertices[new_vertex] = []
 
     def add_edge(self, new_vertex, new_edge):
 
+        """ Add edge to values in list """
+
         self.vertices.setdefault(new_vertex,[]).append(new_edge)
 
     def show_graph(self):
+
+        """ Display the graph """
 
         print(self.vertices)
 
     def breadth_first_search(self, start_search, z, queue):
 
-        try:                                                          # Avoid z out of range index error
+        """ Breadth first search of graph """
+
+        try:                                                          # Catch index error
 
             if start_search not in self.visited:                      # Don't want to re-visit vertex
 
@@ -55,10 +53,14 @@ class Graph:
                     for a,v in enumerate(search):                     # Access each list element seperatley
 
                         try:
+                            
                             if v[x] not in queue:                     # Don't want duplicate edges in queue
+                                
                                 queue.append(v[x])                    # Add edge to queue
                                 x = x +1
+                                
                             else:
+                                
                                 x = x+1
 
                         except IndexError:
@@ -68,25 +70,29 @@ class Graph:
                             go = False                                # Breaks loop
 
                 start_search = queue[z]                               # Next current vertex is first item in queue
-                #z = z+1
+                
                 Graph.breadth_first_search(self, start_search, z, queue)
 
-            elif start_search in self.visited:                        # If already been to that vertex
-                queue.remove(start_search)                            # remove vertex from queue, because we have already been there
+            elif start_search in self.visited:      # If already been to that vertex
+                
+                queue.remove(start_search)          # Remove vertex from queue, because we have already been there
                 start_search = queue[z]
+                
                 Graph.breadth_first_search(self,start_search,z, queue)
 
             else:
-                print("")
-                print(self.visited)                           
+                return start_search
+                                         
                 
-        except IndexError:                                            # z will go out of index range
+        except IndexError:
+            
+            print("Breadth first search : ")
             print(self.visited)
             
 
    
 
-g = Graph()
+g = Graph()                                         # Add vertex
 g.add_vertex('A')
 g.add_vertex('B')
 g.add_vertex('C')
@@ -100,7 +106,7 @@ g.add_vertex('S')
 g.show_graph()
 print("")
 
-g.add_edge('A',['B','S'])
+g.add_edge('A',['B','S'])                           # Add edges 
 g.add_edge('B',['A'])
 g.add_edge('S',['A','C','G'])
 g.add_edge('C',['D','E','F','S'])
@@ -111,8 +117,9 @@ g.add_edge('G',['S','F','H'])
 g.add_edge('H',['G','E'])
 
 g.show_graph()
-z = 0
-queue = []
-start_search = ('A')
-g.breadth_first_search(start_search, z, queue)
+z = 0                                              # Used to access position 0 in the queue
+queue = []                                         # Start with empty queue
+start_search = ('A')                               # Start search from vertex 'A'
+
+g.breadth_first_search(start_search, z, queue)            
 
