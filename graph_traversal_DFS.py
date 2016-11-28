@@ -2,51 +2,62 @@ import sys
 
 class Graph:
 
+    """ Insert given vertex and value into graph """
+
     def __init__(self):
 
-        vertices = {}
-        visited = []
+        vertices = {}                  # Used a Dictionary to store vertex as key
+                                       #  - and lists as values 
+        visited = []                   # Empty list for DFS
         self.vertices = vertices
         self.visited = visited
 
     def add_vertex(self, new_vertex):
 
+        """ Add vertex as key """
+
         self.vertices[new_vertex] = []
 
     def add_edge(self, new_vertex, new_edge):
+
+        """ Add edge to values in list """
 
         self.vertices.setdefault(new_vertex,[]).append(new_edge)
 
     def show_graph(self):
 
+        """ Display the graph """
+
         print(self.vertices)
 
     def depth_first_search(self, start_search, stack, z):
 
-        try:
+        """ Depth first search of graph """
 
-            if start_search not in self.visited:
+        try:                                          # Catch index error
 
-                self.visited.append(start_search)
+            if start_search not in self.visited:      # Not visit the same vertex
+
+                self.visited.append(start_search)     # Add current vertex to visited
 
                 print("Visited")
                 print(self.visited)
 
-                search = self.vertices[start_search]
+                search = self.vertices[start_search]  # Access key(vertex),values(edges)
                 x = 0
                 go = True
 
-                while go == True:
+                while go == True:       # Itterate over edges and add to stack
 
-                    for a,v in enumerate(search):
+                    for a,v in enumerate(search):     # Allows to index values eg:(0,'2')
 
-                        try:
+                        try:                          # Catch list index error
                             
-                            if v[x] not in stack:
+                            if v[x] not in stack:     # No duplicates in stack
                                 stack.append(v[x])
                                 x = x+1
 
-                                if v[x] in self.visited:
+                                if v[x] in self.visited:  # Remove value from visited
                                     stack.remove(v[x])
                                     
 
@@ -55,34 +66,38 @@ class Graph:
 
                         except:
 
-                            go = False
+                            go = False                # Break loop
 
                 print("Stack")
                 print(stack)
-                start_search = stack.pop(z)
+                print("")
+                start_search = stack.pop(z)           # Take last in value(edge)
+                                                      # Becomes current vertex
+                                                      
                 Graph.depth_first_search(self, start_search, stack, z)
 
                 return start_search
 
-            elif start_search in self.visited:
+            elif start_search in self.visited:  # If we have already visited the vertex
                 
-                start_search = stack.pop(z)
-                stack.clear()
+                start_search = stack.pop(z)     # Take next edge in stack
+                
+                stack.clear()                   # Empty stack to not skip vertexes
+                
                 Graph.depth_first_search(self, start_search, stack, z)
 
         
             else:
 
-                print("END")
-                print(self.visited)
+                return start_search
 
         except:
-            print("THIS IS THE END")
+            print("Depth First Search : ")
             print(self.visited)
         
 
 g = Graph()
-g.add_vertex('A')
+g.add_vertex('A')                               # Add vertexes 
 g.add_vertex('B')
 g.add_vertex('C')
 g.add_vertex('D')
@@ -94,7 +109,7 @@ g.add_vertex('S')
 
 g.show_graph()
 print("")
-g.add_edge('A',['B','S'])
+g.add_edge('A',['B','S'])                      # Add Edges 
 g.add_edge('B',['A'])
 g.add_edge('S',['A','C','G'])
 g.add_edge('C',['S','F','E','D'])
@@ -107,7 +122,8 @@ g.add_edge('H',['G','E'])
 
 g.show_graph()
 
-start_search = ('A')
-z = 0
-stack = []
+start_search = ('A')      # Start node for traversal
+z = 0                     # Allows to access position 0 of stack for pop()
+stack = []                # Empty stack
+
 g.depth_first_search(start_search, stack, z)
